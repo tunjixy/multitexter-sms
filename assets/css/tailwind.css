@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body {
+    @apply h-full scroll-smooth;
+  }
+
+  body {
+    @apply antialiased bg-white dark:bg-dark-primary font-Hanken text-dark-text dark:text-white;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+  html {
+    color-scheme: light;
+  }
+}
+
+@layer components {
+  .checkbox {
+    @apply bg-transparent border rounded cursor-pointer focus:outline-none focus-visible:outline-none form-checkbox size-5 text-primary border-grey dark:border-grey/10 focus-visible:ring-1 focus-visible:ring-primary ring-offset-transparent focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 hover:bg-primary/20;
+  }
+  .radio-input {
+    @apply border-none rounded-full shadow-md cursor-pointer size-5 form-radio bg-primary/30 text-primary focus:outline-none focus:ring-1 focus:ring-primary;
+  }
+  .btn-primary {
+    @apply px-4 py-2 text-sm font-bold text-center text-white transition duration-500 rounded bg-primary hover:bg-primary-dark shadow-btn disabled:cursor-not-allowed disabled:opacity-30;
+  }
+  .btn-outline {
+    @apply px-4 py-2 text-sm font-bold text-center transition duration-500 bg-transparent border rounded border-primary text-primary hover:bg-primary/30 shadow-btn disabled:cursor-not-allowed disabled:opacity-30;
+  }
+  .btn-paginate {
+    @apply text-sm font-bold transition duration-300 ease-linear bg-white rounded-lg shadow size-10 text-dark-text hover:bg-primary hover:text-white active:bg-primary-dark active:text-white disabled:cursor-not-allowed disabled:bg-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+  }
+  .password-toggle-indicator {
+    @apply absolute cursor-pointer size-5 right-5 bottom-3 text-light-text dark:text-dark-light-text;
+  }
+  .form-input-field {
+    @apply w-full px-3 py-3 text-sm bg-transparent border rounded resize-none border-grey dark:border-grey/10 ring-offset-primary placeholder:text-grey dark:placeholder:text-grey/20 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .pill {
+    @apply px-2 py-1 text-xs font-bold rounded shadow-custom;
+  }
+  .pill-info {
+    @apply text-blue-500 bg-blue-500/20;
+  }
+  .pill-success {
+    @apply text-green-500 bg-green-500/20;
+  }
+  .pill-warning {
+    @apply text-yellow-500 bg-yellow-500/20;
+  }
+  .pill-danger {
+    @apply text-red-500 bg-red-500/20;
+  }
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@screen lg {
+  .container {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+.dashboard .container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#__nuxt {
+  @apply flex flex-col min-h-full;
+}
+
+.wrapper {
+  flex: 1 0 auto;
+}
+
+/* Transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.2s ease-in;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.slide-nav-enter-active,
+.slide-nav-leave-active {
+  transition: all 0.2s ease-out;
+}
+.slide-nav-enter-from,
+.slide-nav-leave-to {
+  transform: translateX(-100%);
+}
+
+.move-modal-enter-from,
+.move-modal-leave-to {
+  transform: translateY(12px);
+  /* transform: scale(0.95); */
+  opacity: 0;
+}
+.move-modal-enter-active,
+.move-modal-leave-active {
+  transition: all ease 0.5s;
+}
+
+/* Active route styling */
+.router-link-exact-active {
+  @apply font-bold text-primary;
+}
+.router-link-exact-active svg {
+  @apply text-primary;
+}
+
+/* vue-date-picker-next styling override */
+.mx-datepicker {
+  width: 100% !important;
+  display: block !important;
+}
+.mx-datepicker-main,
+.mx-date-time,
+.mx-time {
+  @apply bg-white dark:bg-dark-secondary border-none rounded-md shadow-custom !important;
+}
+.mx-icon-calendar,
+.mx-icon-clear,
+i {
+  @apply text-dark-text dark:text-white !important;
+}
+.mx-calendar-content .cell.active {
+  @apply bg-primary text-white !important;
+}
+.mx-table-date .today {
+  @apply font-bold text-primary !important;
+}
+.mx-calendar-content .cell:hover {
+  @apply bg-primary-dark/10 text-primary-light !important;
+}
+.mx-time-content .mx-time-item:hover {
+  @apply bg-primary-dark/10 text-primary-light !important;
+}
+.mx-time-content .mx-time-item.active {
+  @apply text-primary !important;
+}
+
+/* vue-sweetalert2 style override */
+.popup {
+  @apply bg-white dark:bg-dark-secondary !important;
+}
+.popup-title {
+  @apply font-Hanken text-sm font-bold text-dark-text dark:text-white !important;
+}
+.popup-description {
+  @apply font-Hanken text-sm text-light-text dark:text-dark-light-text !important;
+}
+.popup-content {
+  @apply font-Hanken text-sm text-light-text dark:text-dark-light-text !important;
+}
+.popup-button {
+  @apply rounded bg-primary py-2 px-6 font-Hanken font-bold text-white shadow-btn focus:outline-none dark:text-white !important;
+}
+.popup-button-cancel {
+  @apply ml-6 rounded border border-primary py-2 px-6 font-Hanken font-bold text-primary !important;
+}

@@ -1,0 +1,63 @@
+export interface Birthday {
+  id: number
+  birthday: string
+  comment: string
+  content: string
+  created_at: string
+  destination: string
+  last_sent: string
+  next_sent: string
+  send_time: string
+  sender: string
+  status: string
+  total_sent: number
+  userid: number
+  username: string
+}
+
+export interface BirthdayRes {
+  data: Birthday[]
+  page: number
+  rows: number
+  status: number
+  total: number
+}
+
+export interface BirthdayStatusRes {
+  msg: string
+  status: number
+}
+
+export interface DeleteBirthdayRes {
+  msg: string
+  status: number
+}
+
+export interface BirthdayCreateReq {
+  displayname: string
+  message: string
+  birthday: string
+  send_time: string
+  mobile_number: string
+  contact_name: string
+}
+
+export interface BirthdayEntryReq {
+  id?: number
+  displayName: string
+  message: string
+  birthday: string
+  sendTime: string
+  phoneNumber: string
+  contactName: string
+}
+
+export interface BirthdayEntryRes {
+  msg: string
+  status: number
+}
+
+export interface UploadBirthdayRes {
+  msg: string
+  status: number
+}
