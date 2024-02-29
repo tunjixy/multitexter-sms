@@ -6,7 +6,7 @@
       :show="toggleDrawer"
       @close="toggleDrawer = false"
     />
-    <div class="relative lg:ml-60 dashboard min-h-svh">
+    <div class="relative lg:ml-60 dashboard min-h-svh data-scroll">
       <DashboardHeader @toggle="toggleDrawer = true" />
       <slot />
       <WhatsappChat />
@@ -48,6 +48,9 @@ import MiscIcon from '@/assets/icons/misc.svg?component'
 import ReferIcon from '@/assets/icons/invite.svg?component'
 import TagIcon from '@/assets/icons/tag.svg?component'
 import BirthdayIcon from '@/assets/icons/birthday.svg?component'
+
+// Reusable composable not related to this component
+const { fetchUserDetails } = useAuth()
 
 const menus = ref<Menu[]>([
   {
@@ -212,4 +215,8 @@ const menus = ref<Menu[]>([
   },
 ])
 const toggleDrawer = ref(false)
+
+onMounted(() => {
+  fetchUserDetails()
+})
 </script>

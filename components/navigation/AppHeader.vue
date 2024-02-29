@@ -17,8 +17,8 @@
           <div class="flex items-center text-xs">
             <ClockIcon class="w-4 h-4 mr-1 text-white" />
             <div>
-              <p class="text-white">Mon - Fri 8am to 6pm</p>
-              <p class="text-white">Sat - Sun 12pm to 6pm</p>
+              <p class="text-white">Mon - Fri 7am to 7pm</p>
+              <p class="text-white">Sat - Sun 7pm to 7am</p>
             </div>
           </div>
           <a
