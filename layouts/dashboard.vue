@@ -6,7 +6,7 @@
       :show="toggleDrawer"
       @close="toggleDrawer = false"
     />
-    <div class="relative lg:ml-60 dashboard min-h-svh data-scroll">
+    <div class="relative lg:ml-60 dashboard min-h-svh">
       <DashboardHeader @toggle="toggleDrawer = true" />
       <slot />
       <WhatsappChat />
