@@ -14,7 +14,7 @@
       <div class="container">
         <template v-if="articles">
           <EmptyState v-if="articles.length === 0">
-            No coverages available
+            No articles available
           </EmptyState>
           <div
             v-else
@@ -37,26 +37,32 @@
 <script setup lang="ts">
 import type { Article, ArticlesRes } from '@/types'
 
+// Reusable composable not related to this page
+const nuxt = useNuxtApp()
+
 // config
 const { BASE_URL } = useRuntimeConfig().public
 
-const articles = useState<Article[] | null>('articles', () => null)
+const articles = ref<Article[] | null>(null)
 
-if (!articles.value) {
-  const { data, error } = await useFetch<ArticlesRes>('blog?page=1', {
-    baseURL: BASE_URL,
+const { data, error } = await useFetch<ArticlesRes>('blog?page=1', {
+  baseURL: BASE_URL,
+  key: 'blog',
+  getCachedData: (key) => {
+    // Check if the data is already cached else refetch data
+    return nuxt.payload.data[key] || nuxt.static.data[key]
+  },
+})
+
+if (data.value?.status === 1) {
+  articles.value = data.value?.data
+}
+
+if (error.value) {
+  throw createError({
+    statusCode: 400,
+    statusMessage: 'Error fetching articles',
   })
-
-  if (data.value?.status === 1) {
-    articles.value = data.value?.data
-  }
-
-  if (error.value) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Error fetching articles',
-    })
-  }
 }
 
 /* function removeSlash(item: string) {

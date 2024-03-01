@@ -51,26 +51,32 @@
 <script setup lang="ts">
 import type { Coverage, CoverageRes } from '@/types'
 
+// Reusable composable not related to this page
+const nuxt = useNuxtApp()
+
 // config
 const { BASE_URL } = useRuntimeConfig().public
 
-const coverages = useState<Coverage[] | null>('coverages', () => null)
+const coverages = ref<Coverage[] | null>(null)
 
-if (!coverages.value) {
-  const { data, error } = await useFetch<CoverageRes>('coverage-prices', {
-    baseURL: BASE_URL,
+const { data, error } = await useFetch<CoverageRes>('coverage-prices', {
+  baseURL: BASE_URL,
+  key: 'coverage',
+  getCachedData: (key) => {
+    // Check if the data is already cached else refetch data
+    return nuxt.payload.data[key] || nuxt.static.data[key]
+  },
+})
+
+if (data.value?.status === 1) {
+  coverages.value = data.value?.data
+}
+
+if (error.value) {
+  throw createError({
+    statusCode: 400,
+    statusMessage: 'Error fetching coverages',
   })
-
-  if (data.value?.status === 1) {
-    coverages.value = data.value?.data
-  }
-
-  if (error.value) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Error fetching coverages',
-    })
-  }
 }
 
 useHead({

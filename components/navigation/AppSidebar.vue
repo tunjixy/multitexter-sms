@@ -11,7 +11,11 @@
         class="fixed top-0 left-0 z-50 flex flex-col justify-between w-64 h-full overflow-y-auto bg-white dark:bg-dark-secondary scrollbar-thin scrollbar-thumb-grey dark:scrollbar-thumb-grey/10 scrollbar-thumb-rounded-md"
       >
         <ul class="px-6 pt-10 space-y-4">
-          <li v-for="(link, index) in links" :key="index">
+          <li
+            v-for="(link, index) in links"
+            :key="index"
+            @click="$emit('close')"
+          >
             <nuxt-link
               :to="link.link"
               class="flex items-center hover:text-primary"
