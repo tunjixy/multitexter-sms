@@ -218,8 +218,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      // BASE_URL: 'https://app.multitexter.com/v2/app/',
-      BASE_URL: 'https://sandbox.multitexter.com/v2/app',
+      BASE_URL: import.meta.env.NUXT_PUBLIC_BASE_URL,
+      // BASE_URL: 'https://sandbox.multitexter.com/v2/app',
     },
   },
 
