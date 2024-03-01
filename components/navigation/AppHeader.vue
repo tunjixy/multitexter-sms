@@ -40,7 +40,7 @@
       <div class="container flex items-center justify-between h-16">
         <div class="flex items-center">
           <AppLogo />
-          <ul class="items-center hidden gap-5 ml-4 lg:flex">
+          <ul class="items-center hidden gap-5 ml-4 xl:flex">
             <li v-for="link in links" :key="link.name">
               <nuxt-link
                 :to="link.link"
@@ -51,7 +51,7 @@
             </li>
           </ul>
         </div>
-        <div class="flex items-center gap-3 lg:hidden">
+        <div class="flex items-center gap-3 xl:hidden">
           <button @click="$emit('onToggle')">
             <MenuIcon class="w-6 h-6" />
           </button>
@@ -108,7 +108,7 @@ const links = ref([
     link: '/pricing',
   },
   {
-    name: 'APIs & Documentation',
+    name: 'Developers',
     link: '/developers',
   },
   {

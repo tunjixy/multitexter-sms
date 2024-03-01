@@ -81,7 +81,7 @@
             class="flex items-center w-full sm:w-auto"
           >
             <SpinLoader v-show="loading" class="mr-2" />
-            {{ loading ? 'Please wait' : 'Submit' }}
+            {{ loading ? 'Please wait' : 'Login' }}
           </UiButton>
         </div>
       </form>

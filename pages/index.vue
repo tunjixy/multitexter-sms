@@ -2,6 +2,7 @@
   <div>
     <section class="min-h-[40vh] py-16">
       <div class="container">
+        <AccountStatus />
         <h1
           class="text-2xl font-bold text-center md:text-4xl lg:text-5xl text-pretty"
         >

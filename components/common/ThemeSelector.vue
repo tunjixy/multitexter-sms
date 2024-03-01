@@ -43,7 +43,7 @@ const currentThemeIcon = computed(() => {
 })
 const currentThemeIconColor = computed(() => {
   if (colorMode.preference === 'system') {
-    return 'bg-slate-500/10 text-slate-700'
+    return 'bg-stone-500/10 text-stone-500'
   } else if (colorMode.preference === 'light') {
     return 'bg-yellow-500/20 text-yellow-700'
   } else if (colorMode.preference === 'dark') {
