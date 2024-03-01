@@ -9,10 +9,11 @@
             {{ article.title }}
           </h1>
           <div class="mt-8 overflow-hidden rounded-lg">
-            <img
+            <NuxtImg
               class="object-cover w-full h-full lg:h-[500px]"
               src="/multitexter.jpg"
               :alt="article.title"
+              placeholder
             />
           </div>
           <article
