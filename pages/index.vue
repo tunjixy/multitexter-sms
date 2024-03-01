@@ -27,14 +27,19 @@
               href="https://play.google.com/store/apps/details?id=com.lordni.multitextersms"
               target="_blank"
             >
-              <img
+              <NuxtImg
                 src="/assets/app.png"
                 alt="Multitexter Bulk SMS Android App"
+                class="h-12"
               />
             </a>
           </div>
           <div class="flex justify-center">
-            <img src="/assets/mobile.png" alt="Multitexter App" />
+            <NuxtImg
+              src="/assets/mobile.png"
+              alt="Multitexter App"
+              class="h-[300px]"
+            />
           </div>
         </div>
       </div>
@@ -166,10 +171,12 @@
           class="flex flex-wrap items-center justify-between gap-8 mx-auto mt-10"
         >
           <li v-for="(client, index) in clients" :key="index">
-            <img
+            <NuxtImg
               class="h-16 rounded-full"
               :src="`/assets/${client.image}`"
               :alt="client.alt"
+              loading="lazy"
+              placeholder
             />
           </li>
         </ul>

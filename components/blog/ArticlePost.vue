@@ -2,10 +2,11 @@
   <div
     class="h-full overflow-hidden bg-white border rounded-lg dark:bg-dark-secondary border-grey dark:border-transparent shadow-custom"
   >
-    <img
+    <NuxtImg
       class="object-cover w-full"
       src="/multitexter.jpg"
       :alt="article.title"
+      placeholder
     />
     <div class="p-5 min-h-[120px]">
       <h2 class="font-bold">{{ article.title }}</h2>

@@ -155,27 +155,19 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    // https://nuxt.com/modules/eslint
     '@nuxtjs/eslint-module',
-
-    // https://tailwindcss.nuxtjs.org/getting-started/setup
     '@nuxtjs/tailwindcss',
-
-    // https://www.shadcn-vue.com/docs/installation/nuxt.html
     'shadcn-nuxt',
-
-    // https://pinia.vuejs.org/ssr/nuxt.html
     '@pinia/nuxt',
-
-    // https://vueuse.org/guide/
     '@vueuse/nuxt',
-
-    // https://color-mode.nuxtjs.org/
     '@nuxtjs/color-mode',
-
-    // https://www.npmjs.com/package/@morev/vue-transitions#usage-with-nuxt
     '@morev/vue-transitions/nuxt',
+    '@nuxt/image',
   ],
+
+  image: {
+    domains: ['https://multitexter-sms.vercel.app/'],
+  },
 
   colorMode: {
     classSuffix: '',
